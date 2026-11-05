@@ -24,7 +24,7 @@ States: `not started`, `in progress`, `blocked`, `review`, `merged`, `implemente
 | Runner timeout and tree kill | Runner | pass | `cargo test -p rustlab-runner` |
 | Content validation | E2E/CI | pass | `cargo xtask validate` table |
 | Black-box E2E | E2E/CI | pass | `cargo xtask e2e` transcript |
-| CI matrix | E2E/CI | pending | workflow exists; not run on GitHub |
+| CI matrix | E2E/CI | pass | [run 42077784146](https://github.com/KeshavRayas/LearnRust/actions/runs/42077784146) |
 | MVP learner test | Integrator | pending | 10 external learners |
 
 ## Decisions
@@ -53,6 +53,8 @@ cargo xtask e2e
 
 All five pass locally on Windows with Rust 1.99.1. The workspace has 30 tests: core types, content validation, check planning/evaluation, runner timeout/tree-kill, progress storage, explainer schema, CLI help/doctor, and the fixture binary.
 
+The GitHub Actions matrix also passed on Ubuntu, Windows, and macOS: [run 42077784146](https://github.com/KeshavRayas/LearnRust/actions/runs/42077784146).
+
 ## Council review
 
 Two independent reviewers checked the implementation after the first green build and again after the fixes.
@@ -66,6 +68,5 @@ The first pass found a hidden-test data-loss path, a runner timeout escape, a st
 
 ## Non-blocking notes
 
-- CI workflow exists at `.github/workflows/rustlab-ci.yml` but has not run on GitHub from this checkout.
 - The Windows job object falls back to `taskkill` if assignment fails, and prints a warning.
 - A hostile project can still run arbitrary code through `cargo test`; the local runner is not a security boundary. The hosted runner is the place for isolation.
