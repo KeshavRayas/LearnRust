@@ -1,0 +1,3 @@
+id = "foundations"
+title = "Foundations"
+projects = ["01-unit-converter"]

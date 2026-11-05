@@ -1,0 +1,79 @@
+id = "unit-converter"
+title = "Unit converter"
+pitch = "Convert units from the command line, and learn the Rust error model while you do it."
+hours = 2
+concepts = ["enums", "Result", "match", "FromStr", "Display"]
+edition = "2024"
+starter = "starter"
+
+[[milestone]]
+id = "parse"
+title = "Parse a quantity"
+lesson = "lessons/01-parse.md"
+task = "tasks/01-parse.md"
+hints = ["hints/01-parse-1.md", "hints/01-parse-2.md"]
+solution = "solutions/01-parse"
+
+[[milestone.checks]]
+id = "parses-km"
+kind = "cargo_test"
+package = "unit-converter"
+test = "parses_km"
+
+[[milestone]]
+id = "convert"
+title = "Convert a quantity"
+lesson = "lessons/02-convert.md"
+task = "tasks/02-convert.md"
+hints = ["hints/02-convert-1.md", "hints/02-convert-2.md"]
+solution = "solutions/02-convert"
+
+[[milestone.checks]]
+id = "converts-km-to-miles"
+kind = "cargo_test"
+package = "unit-converter"
+test = "converts_km_to_miles"
+
+[[milestone]]
+id = "reject"
+title = "Reject bad input"
+lesson = "lessons/03-reject.md"
+task = "tasks/03-reject.md"
+hints = ["hints/03-reject-1.md", "hints/03-reject-2.md"]
+solution = "solutions/03-reject"
+
+[[milestone.checks]]
+id = "rejects-unknown"
+kind = "cargo_test"
+package = "unit-converter"
+test = "rejects_unknown"
+
+[[milestone]]
+id = "cli"
+title = "Wire up the CLI"
+lesson = "lessons/04-cli.md"
+task = "tasks/04-cli.md"
+hints = ["hints/04-cli-1.md", "hints/04-cli-2.md"]
+solution = "solutions/04-cli"
+
+[[milestone.checks]]
+id = "cli-converts"
+kind = "cli"
+package = "unit-converter"
+args = ["10", "km", "mi"]
+timeout_secs = 10
+expect = { exit_code = 0, stdout = { kind = "contains", value = "6.21" } }
+
+[[milestone.checks]]
+id = "cli-integration"
+kind = "cargo_test"
+package = "unit-converter"
+test = "cli_converts"
+
+[[milestone.checks]]
+id = "cli-rejects-unknown"
+kind = "cli"
+package = "unit-converter"
+args = ["10", "furlongs", "mi"]
+timeout_secs = 10
+expect = { exit_code = 2, stderr = { kind = "contains", value = "unknown unit: furlongs" } }

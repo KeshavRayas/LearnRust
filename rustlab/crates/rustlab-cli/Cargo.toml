@@ -1,0 +1,24 @@
+[package]
+name = "rustlab-cli"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[[bin]]
+name = "rustlab"
+path = "src/main.rs"
+
+[dependencies]
+anyhow.workspace = true
+clap.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+uuid.workspace = true
+time.workspace = true
+dirs.workspace = true
+tempfile.workspace = true
+rustlab-core = { path = "../rustlab-core" }
+rustlab-content = { path = "../rustlab-content" }
+rustlab-check = { path = "../rustlab-check" }
+rustlab-runner = { path = "../rustlab-runner" }
+rustlab-explain = { path = "../rustlab-explain" }

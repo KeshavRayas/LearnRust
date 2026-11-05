@@ -1,0 +1,155 @@
+{
+  "schema_version": 1,
+  "errors": [
+    {
+      "code": "E0382",
+      "title": "Use of moved value",
+      "body": "The value was moved into another function or variable, so the original binding no longer owns it. Borrow it with &, clone it, or pass it back.",
+      "link": "https://doc.rust-lang.org/error_codes/E0382.html"
+    },
+    {
+      "code": "E0502",
+      "title": "Borrow conflict",
+      "body": "You asked for a mutable borrow while an immutable borrow was still alive. End the first borrow before you mutate, or restructure the function so the two uses do not overlap.",
+      "link": "https://doc.rust-lang.org/error_codes/E0502.html"
+    },
+    {
+      "code": "E0499",
+      "title": "Two mutable borrows",
+      "body": "Two parts of the code asked for mutable access at the same time. Keep one mutable borrow at a time, or use interior mutability such as RefCell when shared mutation is the real design.",
+      "link": "https://doc.rust-lang.org/error_codes/E0499.html"
+    },
+    {
+      "code": "E0597",
+      "title": "Value does not live long enough",
+      "body": "A reference outlived the value it points to. Move the value so it lives longer, or return an owned value instead of a reference.",
+      "link": "https://doc.rust-lang.org/error_codes/E0597.html"
+    },
+    {
+      "code": "E0716",
+      "title": "Temporary dropped while borrowed",
+      "body": "A temporary value was destroyed while a reference to it was still in use. Bind the temporary to a variable first, or take ownership of the value.",
+      "link": "https://doc.rust-lang.org/error_codes/E0716.html"
+    },
+    {
+      "code": "E0515",
+      "title": "Returning a local reference",
+      "body": "The function tried to return a reference to a value created inside it. Return the owned value, or accept a reference from the caller instead.",
+      "link": "https://doc.rust-lang.org/error_codes/E0515.html"
+    },
+    {
+      "code": "E0106",
+      "title": "Missing lifetime",
+      "body": "The compiler cannot tell which input a returned reference comes from. Add a lifetime parameter and connect the output to the input it borrows from.",
+      "link": "https://doc.rust-lang.org/error_codes/E0106.html"
+    },
+    {
+      "code": "E0277",
+      "title": "Trait bound not satisfied",
+      "body": "The type does not implement the trait the function requires. Implement the trait, derive it, or change the bound to match the type you actually have.",
+      "link": "https://doc.rust-lang.org/error_codes/E0277.html"
+    },
+    {
+      "code": "E0308",
+      "title": "Mismatched types",
+      "body": "An expression has one type and the surrounding code expects another. Convert explicitly with as, From, or a parse call, or change the expected type.",
+      "link": "https://doc.rust-lang.org/error_codes/E0308.html"
+    },
+    {
+      "code": "E0433",
+      "title": "Failed to resolve path",
+      "body": "The path does not name a module, crate, or item that exists. Check the spelling, the module tree, and whether the dependency is in Cargo.toml.",
+      "link": "https://doc.rust-lang.org/error_codes/E0433.html"
+    },
+    {
+      "code": "E0425",
+      "title": "Cannot find value",
+      "body": "The name is not in scope. Import it, define it, or check whether it lives in a child module that needs pub. Start with the import path, then check module visibility.",
+      "link": "https://doc.rust-lang.org/error_codes/E0425.html"
+    },
+    {
+      "code": "E0412",
+      "title": "Cannot find type",
+      "body": "The type name is not in scope. Import the type, define it, or check the module path and the pub visibility. Check the import path and the visibility of the module that defines it.",
+      "link": "https://doc.rust-lang.org/error_codes/E0412.html"
+    },
+    {
+      "code": "E0061",
+      "title": "Wrong number of arguments",
+      "body": "The call passes a different number of arguments than the function accepts. Check the function signature, including self, and update the call.",
+      "link": "https://doc.rust-lang.org/error_codes/E0061.html"
+    },
+    {
+      "code": "E0599",
+      "title": "No method found",
+      "body": "The method does not exist for this type, or the trait that provides it is not in scope. Import the trait, or check the method name and receiver.",
+      "link": "https://doc.rust-lang.org/error_codes/E0599.html"
+    },
+    {
+      "code": "E0507",
+      "title": "Cannot move out of borrowed content",
+      "body": "The code tried to take ownership of a value behind a reference. Clone it, borrow it, or change the function to take ownership.",
+      "link": "https://doc.rust-lang.org/error_codes/E0507.html"
+    },
+    {
+      "code": "E0603",
+      "title": "Private item",
+      "body": "The item exists but is private to its module. Make it pub, or use the public API that the module exposes. Check the module path and the visibility of every parent module.",
+      "link": "https://doc.rust-lang.org/error_codes/E0603.html"
+    },
+    {
+      "code": "E0616",
+      "title": "Private field",
+      "body": "The struct field is private. Use a constructor or a method, or make the field public if the struct is meant to expose it.",
+      "link": "https://doc.rust-lang.org/error_codes/E0616.html"
+    },
+    {
+      "code": "E0624",
+      "title": "Private method",
+      "body": "The method is private. Make it pub, or call it through a public method on the same type. If the method is in another module, check the pub(crate) path as well.",
+      "link": "https://doc.rust-lang.org/error_codes/E0624.html"
+    },
+    {
+      "code": "E0658",
+      "title": "Unstable feature",
+      "body": "The feature is not available on stable Rust. Remove it, use a stable alternative, or switch to nightly if the project allows it.",
+      "link": "https://doc.rust-lang.org/error_codes/E0658.html"
+    },
+    {
+      "code": "E0310",
+      "title": "Lifetime bound not satisfied",
+      "body": "A type parameter may contain references that do not live long enough. Add a lifetime bound such as 'a to the type parameter.",
+      "link": "https://doc.rust-lang.org/error_codes/E0310.html"
+    },
+    {
+      "code": "E0521",
+      "title": "Borrow escapes the method",
+      "body": "Borrowed data escapes the method that borrowed it. Return an owned value, or connect the output lifetime to the input lifetime.",
+      "link": "https://doc.rust-lang.org/error_codes/E0521.html"
+    },
+    {
+      "code": "E0596",
+      "title": "Cannot borrow as mutable",
+      "body": "The binding is immutable, so it cannot be borrowed mutably. Declare it with let mut, or take a mutable reference from the caller.",
+      "link": "https://doc.rust-lang.org/error_codes/E0596.html"
+    },
+    {
+      "code": "E0503",
+      "title": "Value mutably borrowed",
+      "body": "The value cannot be used because it is still mutably borrowed. End the mutable borrow before you read or move the value.",
+      "link": "https://doc.rust-lang.org/error_codes/E0503.html"
+    },
+    {
+      "code": "E0505",
+      "title": "Cannot move while borrowed",
+      "body": "The value cannot be moved because another part of the code still holds a borrow. Drop the borrow first, or clone the value.",
+      "link": "https://doc.rust-lang.org/error_codes/E0505.html"
+    },
+    {
+      "code": "E0508",
+      "title": "Cannot move out of index",
+      "body": "Indexing returns a place, not an owned value, so the element cannot be moved out directly. Clone it, borrow it, or use swap_remove.",
+      "link": "https://doc.rust-lang.org/error_codes/E0508.html"
+    }
+  ]
+}

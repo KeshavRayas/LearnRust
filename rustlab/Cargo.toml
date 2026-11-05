@@ -1,0 +1,31 @@
+[workspace]
+resolver = "2"
+members = [
+  "crates/rustlab-core",
+  "crates/rustlab-content",
+  "crates/rustlab-check",
+  "crates/rustlab-runner",
+  "crates/rustlab-explain",
+  "crates/rustlab-cli",
+  "xtask",
+  "fixtures/hello-cli",
+]
+exclude = ["content/**"]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2024"
+license = "MIT"
+
+[workspace.dependencies]
+anyhow = "1"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+toml = "0.8"
+regex = "1"
+uuid = { version = "1", features = ["v4", "serde"] }
+time = { version = "0.3", features = ["serde", "formatting", "parsing"] }
+dirs = "6"
+clap = { version = "4", features = ["derive"] }
+tempfile = "3"
+wait-timeout = "0.2"

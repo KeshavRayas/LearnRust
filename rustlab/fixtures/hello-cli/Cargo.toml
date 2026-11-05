@@ -1,0 +1,11 @@
+[package]
+name = "hello-cli"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[[bin]]
+name = "hello-cli"
+path = "src/main.rs"
+
+[dependencies]
