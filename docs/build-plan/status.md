@@ -1,6 +1,6 @@
 # Status
 
-Updated after the MVP implementation.
+Updated after the beginner onboarding pass.
 
 | Workstream | Branch | State | PR | Blocker |
 | --- | --- | --- | --- | --- |
@@ -9,8 +9,9 @@ Updated after the MVP implementation.
 | Check engine | `ws/check-engine` | implemented | local | none |
 | Runner | `ws/runner` | implemented | local | none |
 | CLI | `ws/cli` | implemented | local | none |
+| Hello Rust | `ws/hello-rust` | implemented | local | none |
 | Unit converter | `ws/unit-converter` | implemented | local | none |
-| E2E/CI | `ws/e2e-ci` | implemented | local | CI matrix not run on GitHub |
+| E2E/CI | `ws/e2e-ci` | implemented | local | none |
 | Explain | `ws/explain` | implemented | local | none |
 | Docs | `ws/docs` | implemented | local | none |
 
@@ -24,7 +25,7 @@ States: `not started`, `in progress`, `blocked`, `review`, `merged`, `implemente
 | Runner timeout and tree kill | Runner | pass | `cargo test -p rustlab-runner` |
 | Content validation | E2E/CI | pass | `cargo xtask validate` table |
 | Black-box E2E | E2E/CI | pass | `cargo xtask e2e` transcript |
-| CI matrix | E2E/CI | pass | [run 42077784146](https://github.com/KeshavRayas/LearnRust/actions/runs/42077784146) |
+| CI matrix | E2E/CI | pass | [run 42221415493](https://github.com/KeshavRayas/LearnRust/actions/runs/42221415493) |
 | MVP learner test | Integrator | pending | 10 external learners |
 
 ## Decisions
@@ -53,7 +54,7 @@ cargo xtask e2e
 
 All five pass locally on Windows with Rust 1.99.1. The workspace has 30 tests: core types, content validation, check planning/evaluation, runner timeout/tree-kill, progress storage, explainer schema, CLI help/doctor, and the fixture binary.
 
-The GitHub Actions matrix also passed on Ubuntu, Windows, and macOS: [run 42077784146](https://github.com/KeshavRayas/LearnRust/actions/runs/42077784146).
+The GitHub Actions matrix also passed on Ubuntu, Windows, and macOS for the beginner onboarding commit: [run 42221415493](https://github.com/KeshavRayas/LearnRust/actions/runs/42221415493).
 
 Post-MVP additions: the zero-syntax `Hello, Rust` project and the `npx` bootstrap. Both are covered by `cargo xtask validate` and the hello-rust E2E path.
 
