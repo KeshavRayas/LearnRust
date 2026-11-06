@@ -1,30 +1,64 @@
 # LearnRust
 
-A Cargo project with runnable examples and notes for learning Rust.
+Learn Rust by building real projects, starting from zero syntax.
 
-## rustlab
+## One command
 
-The project-based learning CLI lives in [`rustlab/`](rustlab/). It scaffolds real Cargo projects, checks behavior, explains compiler errors, and tracks progress.
-
-Start with [`rustlab/README.md`](rustlab/README.md) or the [quickstart](rustlab/docs/quickstart.md).
-
-## Learning notes
-
-- Notes: [RUST_NOTES.md](RUST_NOTES.md)
-- Lessons: `examples/` (one file per topic, heavily commented)
-- Your original program: `src/main.rs`
-
-```powershell
-cargo run                          # your hello world
-cargo run --example ownership      # one lesson
-cargo check                        # fast type check while editing
-cargo test                         # once you start writing tests
-cargo clippy -- -D warnings        # lints
+```text
+npx github:KeshavRayas/LearnRust
 ```
 
-Start with `cargo run --example ownership`, then read section 5 of the notes,
-then write your own version of the example from scratch.
+The command installs the `rustlab` CLI, copies the course content, checks your toolchain, and creates the first project at `~/rustlab-projects/hello-rust`.
 
-If a command fails, read the top error first. If it says
-`could not find Cargo.toml`, you are in the wrong directory. If it says
-`linker 'link.exe' not found`, install the Visual Studio C++ build tools.
+Requirements:
+
+- Node 18 or newer
+- Rust stable. If Rust is missing, install it from [rustup.rs](https://rustup.rs). On Windows, install the Visual Studio C++ build tools too.
+
+If npm asks to install the package, accept it. For a non-interactive shell, use:
+
+```text
+npx --yes github:KeshavRayas/LearnRust
+```
+
+## What you get
+
+- **Hello, Rust**: a zero-syntax first project. Print a greeting, write a function, use a vector, and add numbers.
+- **Unit converter**: parse input, convert units, return typed errors, and build a real CLI.
+- A local progress file, hints, worked solutions, and a check command that runs the real compiler.
+
+## The loop
+
+```text
+cd ~/rustlab-projects/hello-rust
+rustlab check
+```
+
+Edit the file named in the task. When the check passes:
+
+```text
+rustlab next
+```
+
+When you are stuck:
+
+```text
+rustlab hint
+rustlab hint --level 2
+rustlab solution
+```
+
+## Repository layout
+
+- `rustlab/` is the product: CLI, content engine, check engine, runner, and course content.
+- `npm/` is the one-command bootstrap.
+- `projects/` is a local learner workspace and is gitignored.
+- `docs/` contains the product research and the parallel build plan.
+
+## Product docs
+
+- [rustlab README](rustlab/README.md)
+- [Quickstart](rustlab/docs/quickstart.md)
+- [Architecture](rustlab/docs/architecture.md)
+- [Content authoring](rustlab/docs/content-authoring.md)
+- [Troubleshooting](rustlab/docs/troubleshooting.md)

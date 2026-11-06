@@ -55,6 +55,8 @@ All five pass locally on Windows with Rust 1.99.1. The workspace has 30 tests: c
 
 The GitHub Actions matrix also passed on Ubuntu, Windows, and macOS: [run 42077784146](https://github.com/KeshavRayas/LearnRust/actions/runs/42077784146).
 
+Post-MVP additions: the zero-syntax `Hello, Rust` project and the `npx` bootstrap. Both are covered by `cargo xtask validate` and the hello-rust E2E path.
+
 ## Council review
 
 Two independent reviewers checked the implementation after the first green build and again after the fixes.

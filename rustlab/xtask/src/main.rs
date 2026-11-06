@@ -341,8 +341,13 @@ fn e2e(project_filter: Option<String>, milestone_filter: Option<String>) -> Resu
         );
     }
     let advanced_stdout = String::from_utf8_lossy(&advanced.stdout);
-    if !advanced_stdout.contains("Convert a quantity") {
-        anyhow::bail!("next did not print the next task: {advanced_stdout}");
+    if let Some(expected) = project.milestones.get(1)
+        && !advanced_stdout.contains(&expected.title)
+    {
+        anyhow::bail!(
+            "next did not print the next task ({}): {advanced_stdout}",
+            expected.title
+        );
     }
     let next_check =
         cli_command(&binary, &home, &root, &workspace, &["check", "--json"]).output()?;

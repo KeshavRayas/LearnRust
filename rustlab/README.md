@@ -1,47 +1,37 @@
 # rustlab
 
-Learn Rust by building real Cargo projects.
+Learn Rust by building real Cargo projects, starting from zero syntax.
 
-`rustlab` scaffolds a project, gives every milestone a failing test, runs behavior checks, explains compiler errors, and keeps progress on disk. The first project is a unit converter with four milestones.
+`rustlab` gives you a project, a failing test, and a check command that runs the real compiler and real tests. It explains failures, gives hints, and keeps progress on disk.
 
-## Install from source
-
-```text
-cd rustlab
-cargo install --path crates/rustlab-cli
-```
-
-The binary needs the content directory. For a local build, point it at this repository:
-
-PowerShell:
-
-```powershell
-$env:RUSTLAB_CONTENT = (Get-Location).Path + "\content"
-```
-
-macOS or Linux:
-
-```bash
-export RUSTLAB_CONTENT="$PWD/content"
-```
-
-To avoid setting it in every shell, use `setx RUSTLAB_CONTENT "<path>"` on Windows, or add the export line to your shell profile.
-
-Then run:
+## One command
 
 ```text
-rustlab doctor
+npx github:KeshavRayas/LearnRust
+```
+
+This installs the CLI, copies the course content to your local data directory, runs `rustlab doctor`, and creates the first project at `~/rustlab-projects/hello-rust`.
+
+Requirements: Node 18+, Rust stable, and a linker. On Windows, install the Visual Studio C++ build tools.
+
+For a non-interactive shell:
+
+```text
+npx --yes github:KeshavRayas/LearnRust
 ```
 
 ## First project
 
 ```text
-rustlab start unit-converter
-cd unit-converter
+cd ~/rustlab-projects/hello-rust
 rustlab check
 ```
 
-Open the project in any editor. When a check fails, run `rustlab hint`. When all checks pass, run `rustlab next`.
+Open the file named in the task. When the check passes:
+
+```text
+rustlab next
+```
 
 ## Commands
 
@@ -60,6 +50,11 @@ Open the project in any editor. When a check fails, run `rustlab hint`. When all
 
 Add `--json` to `doctor`, `list`, `start`, `check`, and `next` for machine-readable output.
 
+## Projects
+
+- **Hello, Rust**: first program, functions, `if`, vectors, loops, and slices.
+- **Unit converter**: enums, `Result`, `match`, `Display`, and a real CLI.
+
 ## How it works
 
 - Content lives in `content/`. Each project is a normal Cargo workspace with lessons, tasks, hidden tests, and solutions.
@@ -67,6 +62,29 @@ Add `--json` to `doctor`, `list`, `start`, `check`, and `next` for machine-reada
 - Progress lives in `RUSTLAB_HOME/state.json`. It defaults to the platform data directory.
 - `cargo xtask validate` checks every solution, starter, and broken variant.
 - `cargo xtask e2e` runs the learner path from `start` to `check`.
+
+## Install from source
+
+From the repository root:
+
+```text
+cd rustlab
+cargo install --path crates/rustlab-cli
+```
+
+If you run from a clone, point the binary at the content:
+
+PowerShell:
+
+```powershell
+$env:RUSTLAB_CONTENT = (Get-Location).Path + "\content"
+```
+
+macOS or Linux:
+
+```bash
+export RUSTLAB_CONTENT="$PWD/content"
+```
 
 ## Docs
 
@@ -78,7 +96,7 @@ Add `--json` to `doctor`, `list`, `start`, `check`, and `next` for machine-reada
 
 ## Status
 
-MVP. One project, four milestones, local-first. The web IDE and hosted runner are not part of this release.
+MVP. Two projects, local-first. The web IDE and hosted runner are not part of this release.
 
 ## License
 

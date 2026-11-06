@@ -1,0 +1,64 @@
+id = "hello-rust"
+title = "Hello, Rust"
+pitch = "Write your first Rust program, one tiny step at a time."
+hours = 1
+concepts = ["main", "println", "functions", "if", "Vec", "for", "slices"]
+starter = "starter"
+
+[[milestone]]
+id = "hello"
+title = "Print a greeting"
+lesson = "lessons/01-hello.md"
+task = "tasks/01-hello.md"
+hints = ["hints/01-hello-1.md", "hints/01-hello-2.md"]
+solution = "solutions/01-hello"
+
+[[milestone.checks]]
+id = "prints-hello"
+kind = "cli"
+package = "hello-rust"
+args = []
+timeout_secs = 10
+expect = { exit_code = 0, stdout = { kind = "contains", value = "Hello, Rust!" } }
+
+[[milestone]]
+id = "greet"
+title = "Greet by name"
+lesson = "lessons/02-greet.md"
+task = "tasks/02-greet.md"
+hints = ["hints/02-greet-1.md", "hints/02-greet-2.md"]
+solution = "solutions/02-greet"
+
+[[milestone.checks]]
+id = "greets-a-name"
+kind = "cargo_test"
+package = "hello-rust"
+test = "greet"
+
+[[milestone]]
+id = "count"
+title = "Count upward"
+lesson = "lessons/03-count.md"
+task = "tasks/03-count.md"
+hints = ["hints/03-count-1.md", "hints/03-count-2.md"]
+solution = "solutions/03-count"
+
+[[milestone.checks]]
+id = "counts-up"
+kind = "cargo_test"
+package = "hello-rust"
+test = "count_to"
+
+[[milestone]]
+id = "sum"
+title = "Add numbers"
+lesson = "lessons/04-sum.md"
+task = "tasks/04-sum.md"
+hints = ["hints/04-sum-1.md", "hints/04-sum-2.md"]
+solution = "solutions/04-sum"
+
+[[milestone.checks]]
+id = "sums-numbers"
+kind = "cargo_test"
+package = "hello-rust"
+test = "sum"

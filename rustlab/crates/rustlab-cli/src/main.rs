@@ -149,6 +149,11 @@ fn discover_content_root() -> Result<PathBuf> {
         );
     }
 
+    let home_content = ProgressStore::from_env().home().join("content");
+    if home_content.join("tracks").is_dir() {
+        return Ok(home_content);
+    }
+
     let cwd = std::env::current_dir()?;
     let exe = std::env::current_exe()?;
     let exe_dir = exe.parent().unwrap_or(Path::new("."));
